@@ -27,7 +27,7 @@ export function Task(props) {
   };
 
   const handleRemove = () => {
-    setList((prevList) => prevList.filter((item) => item.props.content !== content));
+    setList((prevList) => prevList.filter((item) => item !== content));
     if (isChecked === true) {
       setDoned(doned - 1);
     }

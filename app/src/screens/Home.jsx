@@ -1,11 +1,12 @@
 import { View, FlatList, Text } from "react-native";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 
 import { styles } from "./style";
 
 import { NewTask } from "../components/NewTask";
 import { ProgressBar } from "../components/ProgressBar";
 import { HomeContext } from "../contexts/HomeContext";
+import { Task } from "../components/Task";
 
 export function Home() {
   const { list } = useContext(HomeContext);
@@ -16,9 +17,10 @@ export function Home() {
       <FlatList
         style={styles.list}
         data={list}
+        key={(item) => item}
         showsVerticalScrollIndicator={false}
         keyExtractor={(item) => item}
-        renderItem={({ item }) => item}
+        renderItem={({ item }) => <Task content={item}></Task>}
         ListEmptyComponent={() => (
             <Text style={styles.listEmptyText}>
                 Nenhuma tarefa

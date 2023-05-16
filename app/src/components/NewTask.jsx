@@ -10,8 +10,8 @@ export function NewTask(props) {
   const { list, setList } = useContext(HomeContext);
 
   const handleAddition = () => {
+    setList([...list, fieldValue]);
     setFieldValue("");
-    setList([...list, <Task content={fieldValue} />]);
   }
 
   return (
